@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "position": "left",
+    "title": "Product Engineer",
+    "dateStarted": "8/15/2025",
+    "dateEnded": "4/9/2025",
+    "description": "Light and fluffy popcorn coated in sweet honey butter."
+  },
+  {
+    "id": 2,
+    "position": "right",
+    "title": "Chemical Engineer",
+    "dateStarted": "9/8/2025",
+    "dateEnded": "4/22/2025",
+    "description": "Indoor Wi-Fi camera for home security."
+  },
+  {
+    "id": 3,
+    "position": "left",
+    "title": "Actuary",
+    "dateStarted": "3/31/2025",
+    "dateEnded": "3/19/2025",
+    "description": "Waterproof picnic blanket for outdoor fun."
+  },
+  {
+    "id": 4,
+    "position": "left",
+    "title": "Senior Quality Engineer",
+    "dateStarted": "6/15/2025",
+    "dateEnded": "11/5/2025",
+    "description": "Functional leggings designed for maximum comfort during workouts."
+  },
+  {
+    "id": 5,
+    "position": "right",
+    "title": "Programmer Analyst II",
+    "dateStarted": "5/4/2025",
+    "dateEnded": "11/30/2024",
+    "description": "Ready-to-eat chicken bowl with teriyaki sauce and rice."
+  }
+]
