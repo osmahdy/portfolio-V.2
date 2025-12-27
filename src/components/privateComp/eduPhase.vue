@@ -42,7 +42,7 @@ const props = defineProps({
       </div>
 
       <div class="data text-start">
-        <!-- <tag :tag-name="value.period" class="!m-0 !mb-3 !rounded-2xl" /> -->
+        <tag :tag-name="value.period" class="!m-0 !mb-3 !rounded-2xl" />
         <p class="pb-3 text-2xl font-semibold text-gray-800 dark:text-white" v-if="value.title">{{ value.title }}</p>
         <p class="-mt-3 pb-3 text-sm font-semibold text-gray-800 dark:text-white" v-if="value.subTitle">
           {{ value.subTitle }}
