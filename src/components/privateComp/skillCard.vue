@@ -27,11 +27,11 @@ const props = defineProps({
     :data-aos-easing="animationTiming"
   >
     <div
-      class="hexagon   relative z-0 m-auto h-[8.66em] w-[5em] cursor-pointer rounded-[0.5em_/_0.25em] outline outline-[10px] outline-offset-[-10px] transition-transform duration-400  hover:scale-80 md:h-[12.12em] md:w-[7em] md:rounded-[0.8em_/_0.4em] dark:bg-gray-900 bg-slate-400 before:bg-slate-400  after:bg-slate-400 dark:before:bg-gray-900 dark:after:bg-gray-900"
+      class="hexagon relative z-0 m-auto h-[8.66em] w-[5em] cursor-pointer rounded-[0.5em_/_0.25em] bg-slate-400 outline outline-[10px] outline-offset-[-10px] transition-transform duration-400 before:bg-slate-400 after:bg-slate-400 hover:scale-80 md:h-[12.12em] md:w-[7em] md:rounded-[0.8em_/_0.4em] dark:bg-gray-900 dark:before:bg-gray-900 dark:after:bg-gray-900"
       :style="{ outlineColor: color }"
     >
       <div class="img relative z-3 flex h-full flex-col items-center justify-center">
-        <img :src="imgUrl" :alt="`${lanName} icon`" class="w-20 md:w-50" loading="lazy" />
+        <img v-if="imgUrl" :src="imgUrl" :alt="`${lanName} icon`" class="w-20 md:w-50" loading="lazy" />
         <p class="text-lg font-bold md:text-2xl">{{ lanName }}</p>
       </div>
     </div>

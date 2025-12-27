@@ -42,7 +42,7 @@ const props = defineProps({
       </div>
 
       <div class="data text-start">
-        <tag :tag-name="value.period" class="!m-0 !mb-3 !rounded-2xl" />
+        <!-- <tag :tag-name="value.period" class="!m-0 !mb-3 !rounded-2xl" /> -->
         <p class="pb-3 text-2xl font-semibold text-gray-800 dark:text-white" v-if="value.title">{{ value.title }}</p>
         <p class="-mt-3 pb-3 text-sm font-semibold text-gray-800 dark:text-white" v-if="value.subTitle">
           {{ value.subTitle }}
@@ -51,7 +51,7 @@ const props = defineProps({
           {{ value.description }}
         </p>
         <div class="tags flex">
-          <tag v-if="value.tags" v-for="tag in value.tags" :tag-name="tag" :tag-type="value.tagType" />
+          <tag v-if="value.tags" v-for="tagval in value.tags" :tag-name="tagval" :tag-type="value.tagType" />
           <!-- <div class="tags flex mt-2 text-lg">
               <div v-if="value.tags" v-for="tag in value.tags" :class="tag"></div>
             </div> -->

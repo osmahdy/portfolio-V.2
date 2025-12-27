@@ -20,8 +20,8 @@ const props = defineProps({
     <subHeader title="Knowledges"></subHeader>
     <div class="mt-5 flex flex-wrap">
       <tag
-        v-for="(tag, index) in tags"
-        :tag-name="tag.name"
+        v-for="(tagVal, index) in tags"
+        :tag-name="tagVal.name"
         :key="index"
         :data-aos="animationType"
         :data-aos-duration="animationDuration"

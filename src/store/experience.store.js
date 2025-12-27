@@ -48,6 +48,11 @@ export const useExperience = defineStore('experience', {
         description:
           'i started university learnig journey at ucas from 2022 to 2027 i decidec to studey cybersecurity engineering',
         workState: true,
+        tagType: 'img',
+        tags: [
+          'https://res.cloudinary.com/dguoer1il/image/upload/v1766662730/vue_pmlh0n.png',
+          'https://res.cloudinary.com/dguoer1il/image/upload/v1766662732/css_dze0hz.png',
+        ],
       },
       {
         period: '2022 - 2027',
@@ -60,7 +65,7 @@ export const useExperience = defineStore('experience', {
         // tags: ['fa-brands fa-html5', 'fa-brands fa-css3-alt', 'fa-brands fa-js'],
         tags: [
           'https://res.cloudinary.com/dguoer1il/image/upload/v1766662730/vue_pmlh0n.png',
-          'https://res.cloudinary.com/dguoer1il/image/upload/v1766662729/tailwind_pskww2.png',
+          'https://res.cloudinary.com/dguoer1il/image/upload/v1766662732/css_dze0hz.png',
         ],
       },
       {
@@ -71,7 +76,10 @@ export const useExperience = defineStore('experience', {
           'i started university learnig journey at ucas from 2022 to 2027 i decidec to studey cybersecurity engineering',
         workState: true,
         tagType: 'img',
-        // tags: [htmlIcon, cssIcon, jsIcon],
+        tags: [
+          'https://res.cloudinary.com/dguoer1il/image/upload/v1766662730/vue_pmlh0n.png',
+          'https://res.cloudinary.com/dguoer1il/image/upload/v1766662732/css_dze0hz.png',
+        ],
       },
     ],
     counterData: [

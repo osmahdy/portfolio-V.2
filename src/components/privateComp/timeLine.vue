@@ -1,6 +1,7 @@
 <script setup>
 import eduPhase from './eduPhase.vue';
 import subHeader from '../genralComp/subHeader.vue';
+import { onMounted } from 'vue';
 const props = defineProps({
   stagesData: {
     type: Array,
@@ -9,6 +10,9 @@ const props = defineProps({
     type: String,
     required: false,
   },
+});
+onMounted(() => {
+  // console.log('stagesData timeline secion', props.stagesData);
 });
 </script>
 <template>

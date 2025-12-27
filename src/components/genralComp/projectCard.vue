@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref, defineProps, inject } from 'vue';
+import { computed, ref, defineProps, inject, onMounted } from 'vue';
 import tag from './tag.vue';
 
 const animationType = inject('animationType');
@@ -35,6 +35,9 @@ const showViewMoreButton = computed(() => {
 const toggle = () => {
   showAll.value = !showAll.value;
 };
+onMounted(() => {
+  console.log('project card section: ', visibleProjects);
+});
 </script>
 
 <template>
@@ -51,7 +54,7 @@ const toggle = () => {
         v-for="(data, index) in visibleProjects"
         :key="index"
       >
-        <img :src="data.image" alt="" class="projectImg w-full rounded-lg" />
+        <img v-if="data.image" :src="data.image" alt="" class="projectImg w-full rounded-lg" />
 
         <div
           class="floating absolute top-0 left-0 flex h-full w-full cursor-pointer flex-col justify-center rounded-lg bg-gray-500/90 p-5 opacity-0 transition-all duration-300 dark:bg-gray-800/90"
@@ -61,13 +64,13 @@ const toggle = () => {
           <div class="tags flex flex-wrap justify-center">
             <tag
               v-if="data.tags"
-              v-for="tag in data.tags"
-              :tag-name="tag"
+              v-for="tagVal in data.tags"
+              :tag-name="tagVal"
               class="!rounded-2xl"
               :tag-type="data.tagType"
             />
           </div>
-          <div class="flex items-center justify-center flex-wrap">
+          <div class="flex flex-wrap items-center justify-center">
             <a
               :href="data.liveLink"
               class="m-2 w-fit rounded-lg bg-slate-400 px-5 text-lg font-semibold hover:underline dark:bg-slate-800"

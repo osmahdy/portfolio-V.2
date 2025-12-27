@@ -8,7 +8,7 @@ const store = useProfileStore();
   <footer class="w-full rounded-3xl border-2 border-solid border-slate-700 px-5">
     <div class="up flex flex-col items-center justify-between lg:flex-row">
       <div class="left flex flex-col items-center justify-start md:flex-row">
-        <img :src="store.foramtDriveImageUrl(store.getIconLink)" alt="logo" class="w-30 rounded-3xl" />
+        <img v-if="store.getIconLink" :src="store.getIconLink" alt="logo" class="w-30 rounded-3xl" />
         <div
           class="quote px-5 text-gray-800 md:border md:border-solid md:border-transparent md:border-l-slate-700 md:text-lg dark:text-gray-200"
         >
@@ -25,7 +25,7 @@ const store = useProfileStore();
     </div>
 
     <div
-      class="copright flex flex-wrap w-full items-center justify-center border border-solid border-transparent border-t-slate-700 py-3 text-gray-800 md:text-lg dark:text-gray-200"
+      class="copright flex w-full flex-wrap items-center justify-center border border-solid border-transparent border-t-slate-700 py-3 text-gray-800 md:text-lg dark:text-gray-200"
     >
       <i class="fa-solid fa-copyright"></i>
       <span class="mx-2">2025 - {{ new Date().getFullYear() }}</span>

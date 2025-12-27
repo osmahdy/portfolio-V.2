@@ -27,7 +27,8 @@ const props = defineProps({
     <div class="bottom flex flex-col items-center justify-center lg:flex-row">
       <div class="order-1 sm:order-0">
         <imgContainer
-          :img-src="store.foramtDriveImageUrl(store.getProfileImg2)"
+          v-if="store.getProfileImg2"
+          :img-src="store.getProfileImg2"
           class="flex justify-center"
           img-style="min-w-sm max-w-sm md:m-10"
           :rounded-value="5"

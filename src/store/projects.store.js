@@ -1,10 +1,6 @@
 //📦 projects collection | projects section
 
 import { defineStore } from 'pinia';
-import q5 from '../assets/projects/q5.png';
-import html from '../assets/skills/html.svg';
-import css from '../assets/skills/css.svg';
-import js from '../assets/skills/js.svg';
 
 export const useProjectsStore = defineStore('projects', {
   state: () => ({
@@ -21,7 +17,7 @@ export const useProjectsStore = defineStore('projects', {
         liveLink: 'https://liveprojectone.com',
         github: 'https://github.com/projectone',
         tagType: 'img',
-        tags: [html, css, js, html],
+        // tags: [html, css, js, html],
       },
       {
         id: 'p2',
@@ -32,7 +28,7 @@ export const useProjectsStore = defineStore('projects', {
         liveLink: 'https://liveprojecttwo.com',
         github: 'https://github.com/projectone',
         tagType: 'img',
-        tags: [html, css, js, html],
+        // tags: [html, css, js, html],
       },
       {
         id: 'p3',
@@ -43,7 +39,7 @@ export const useProjectsStore = defineStore('projects', {
         liveLink: 'https://liveprojectthree.com',
         github: 'https://github.com/projectthree',
         tagType: 'img',
-        tags: [html, css, js, html],
+        // tags: [html, css, js, html],
       },
       {
         id: 'p4',
@@ -54,7 +50,7 @@ export const useProjectsStore = defineStore('projects', {
         liveLink: 'https://liveprojectfour.com',
         github: 'https://github.com/projectfour',
         tagType: 'img',
-        tags: [html, css, js, html],
+        // tags: [html, css, js, html],
       },
       {
         id: 'p5',
@@ -65,7 +61,7 @@ export const useProjectsStore = defineStore('projects', {
         liveLink: 'https://liveprojectfive.com',
         github: 'https://github.com/projectfive',
         tagType: 'img',
-        tags: [html, css, js, html],
+        // tags: [html, css, js, html],
       },
       {
         id: 'p6',
@@ -76,7 +72,7 @@ export const useProjectsStore = defineStore('projects', {
         liveLink: 'https://liveprojectsix.com',
         github: 'https://github.com/projectsix',
         tagType: 'img',
-        tags: [html, css, js, html],
+        // tags: [html, css, js, html],
       },
     ],
   }),

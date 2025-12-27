@@ -23,6 +23,7 @@ function printOffset() {
 onMounted(() => {
   window.addEventListener('scroll', printOffset);
   printOffset(); // initial print
+  // console.log('stage data work section', store.getWorkData);
 });
 
 onBeforeUnmount(() => {

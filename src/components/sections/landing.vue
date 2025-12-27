@@ -6,11 +6,11 @@ const store = useProfileStore();
 <template>
   <div class="landingDetails m-auto w-full px-5 pt-50 md:pt-30 lg:flex-row">
     <imgContainer
-      :img-src="store.foramtDriveImageUrl(store.getProfileImg1)"
+      v-if="store.getProfileImg1"
+      :img-src="store.getProfileImg1"
       class="flex justify-center"
       img-style="w-3xs "
     ></imgContainer>
-
     <div class="mt-10 size-full w-full text-center">
       <p class="w-full text-3xl font-bold lg:text-4xl">{{ store.getJobTitle }}</p>
       <p class="my-2 w-full text-2xl font-bold lg:text-4xl">

@@ -11,58 +11,6 @@ function formatDriveImageUrl(shareLink) {
 
 export const useSkills = defineStore('skills', {
   state: () => ({
-    // skills: [
-    //   {
-    //     img: 'https://drive.google.com/file/d/1LotXx7xPfLMv8CYsgRI2AipjSIkflBq3/view?usp=sharing',
-    //     color: '#E44D26',
-    //     name: 'HTML',
-    //   },
-    //   {
-    //     img: 'https://drive.google.com/file/d/1_YIYIpQhz9c8myde_cLrufSaBOko6mvP/view?usp=sharing',
-    //     color: '#1172B8',
-    //     name: 'CSS',
-    //   },
-    //   {
-    //     img: 'https://drive.google.com/file/d/1Y2k1SBiOofFGtCN8t0nn1etls1dZxJ2I/view?usp=sharing',
-    //     color: '#F7DF1E',
-    //     name: 'JavaScript',
-    //   },
-    //   {
-    //     img: 'https://drive.google.com/file/d/1a3tQCLAMyw0F6Xp3meHOmiqLctNG9piS/view?usp=sharing',
-    //     color: '#42B883',
-    //     name: 'Vue.js',
-    //   },
-    //   {
-    //     img: 'https://drive.google.com/file/d/10x3fykLrxJgs7APp5tAqk6aKgZC19Y9-/view?usp=sharing',
-    //     color: '#7952B3',
-    //     name: 'Bootstrap',
-    //   },
-    //   {
-    //     img: 'https://drive.google.com/file/d/1tuyKWIaCQinIvSF4TF3TmcRu2ytJ0cZS/view?usp=sharing',
-    //     color: '#38BDF8',
-    //     name: 'TailwindCSS',
-    //   },
-    //   {
-    //     img: 'https://drive.google.com/file/d/1wiGWxXRx_dddtaynLQNAd5CGx5utPsn-/view?usp=sharing',
-    //     color: '#FFA712',
-    //     name: 'Firebase',
-    //   },
-    //   {
-    //     img: 'https://drive.google.com/file/d/1tpMgPqzxTwJwmwPCzGtJ7MGQWZQMX1jG/view?usp=sharing',
-    //     color: '#F1502F',
-    //     name: 'Git',
-    //   },
-    //   {
-    //     img: 'https://drive.google.com/file/d/1Ng02DTGcQ0Zwi0J-1RauYXliLcAA4egS/view?usp=sharing',
-    //     color: 'white',
-    //     name: 'GitHub',
-    //   },
-    //   {
-    //     img: 'https://drive.google.com/file/d/1Sk-Uh7kDH5D2ZgmWkWSCCglMMxphRNGa/view?usp=sharing',
-    //     color: '#5382A1',
-    //     name: 'Java',
-    //   },
-    // ],
     skills: [
       {
         img: 'https://res.cloudinary.com/dguoer1il/image/upload/v1766662730/html_o7i5vl.png',

@@ -4,10 +4,10 @@ import { format } from 'prettier';
 
 export const useProfileStore = defineStore('profile', {
   state: () => ({
-    iconLink: 'https://drive.google.com/file/d/1ICvfMNWKlj2Q3AsfRDZquhkVx2VywBPz/view?usp=sharing',
+    iconLink: 'https://res.cloudinary.com/dguoer1il/image/upload/v1766663835/logo1.2_vi14ps.png',
     cvLink: 'https://drive.google.com/uc?export=download&id=1ms6n1N13gegETFFKQSeF4eSmDncvm0R3',
-    profileImg1Link: 'https://drive.google.com/file/d/1qol8Hn2vJ4H89ax7ZAcB_RxPCk-XNQS4/view?usp=sharing',
-    profileImg2Link: 'https://drive.google.com/file/d/137t0JMHv6gaHK6Qf3jr0EjIIySV47NbZ/view?usp=sharing',
+    profileImg1Link: 'https://res.cloudinary.com/dguoer1il/image/upload/v1766663778/profile_ltf8a3.png',
+    profileImg2Link: 'https://res.cloudinary.com/dguoer1il/image/upload/v1766663802/profile3_zxyibr.png',
     // hideAboutImg: true,
 
     heroSectionHeading: 'Hi, I am Osama Mahdi Front-end Developer',
