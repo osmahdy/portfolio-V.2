@@ -1,0 +1,296 @@
+state: () => ({
+    iconLink: 'https://res.cloudinary.com/dguoer1il/image/upload/v1766663835/logo1.2_vi14ps.png',
+    cvLink: 'https://drive.google.com/uc?export=download&id=1ms6n1N13gegETFFKQSeF4eSmDncvm0R3',
+    profileImg1Link: 'https://res.cloudinary.com/dguoer1il/image/upload/v1766663778/profile_ltf8a3.png',
+    profileImg2Link: 'https://res.cloudinary.com/dguoer1il/image/upload/v1766663802/profile3_zxyibr.png',
+    // hideAboutImg: true,
+
+    heroSectionHeading: 'Hi, I am Osama Mahdi Front-end Developer',
+    heroSectionDescription:
+      "I'm a Vue.js | Front-end developer with deep expertise in JavaScript Currently expanding my skills in Front-end development with Vue.js to become a well-rounded front-end engineer. I study Cyber Security Engineering at the University College of Applied Sciences in Gaza.",
+
+    storyBoxDescription:
+      'After the war in Gaza and the closure of universities, I took the  opportunity to begin learning the fundamentals of web development — starting with HTML, CSS, and JavaScript. I built several projects using vanilla JavaScript, which helped me understand the core of how the web works. As I looked for the next step, I discovered a training opportunity with Gaza Sky Geeks focused on React and Next.js. I applied, passed the interview, and was accepted During this intensive program, my team and I built a project called Codepilot, which won first place in the final demo phase. After graduating, I focused on deepening my knowledge of JavaScript and building more projects using both React and Next.js. Driven to grow as a full-stack developer, I applied to the Gaza Sky Geeks Backend Bootcamp, where I was accepted after a competitive multi-stage selection process. Now, I’m continuing to expand my skill set by learning React Native while exploring backend technologies — on a mission to become a well-rounded software engineer.',
+
+    name: 'Osama Mahdi',
+    jobTitle: 'Frontend Developer',
+    languages: ['arabic', 'english', 'ordo'],
+    freelanceState: 'Freelance',
+
+    contactDescription:
+      "I'm currently open to new opportunities and collaborations.Whether you have a question, a project idea, or just want to say hello, feel free to reach out!",
+    email: 'os6sooma@gmail.com',
+    emailLink: 'mail.google.com/mail/?view=cm&to=os6sooma@gmail.com&su=Contact Request',
+    whatsappNumber: '+972595295586',
+    whatsappLink: 'https://wa.me//+972595295586',
+
+    linkedInLink: 'https://linkedin.com/in/osama-mahdi',
+    githubLink: 'www.github.com/osmahdy',
+    instagramLink: 'https://www.instagram.com/_ohmahdi_/',
+
+    footerHook: 'When you love what you do, creativity follows.',
+    footerCopyrights: 'Osama Mahdi — Built with Vue.js & Tailwind CSS',
+  }),
+--------------------------------------------------------------------
+
+  state: () => ({
+    tagsList: [
+      'Html',
+      'Css',
+      'JavaScript',
+      'Vue.js',
+      'React',
+      'Node.js',
+      'Express.js',
+      'MongoDB',
+      'SQL',
+      'Git',
+      'Web Development',
+    ],
+    eduData: [
+      {
+        id: 'ed1',
+        period: '2022 - 2027',
+        title: 'Started University Learn',
+        subTitle: '',
+        order: 0,
+        description:
+          'I started university learning journey at UCAS from 2022 to 2027 and decided to study cybersecurity engineering',
+        studyState: true,
+      },
+      {
+        id: 'ed2',
+        period: '2022 - 2023',
+        title: 'First Level At University',
+        subTitle: '',
+        order: 1,
+        description:
+          'I started university learning journey at UCAS from 2022 to 2027 and decided to study cybersecurity engineering',
+        studyState: true,
+      },
+      {
+        id: 'ed3',
+        period: '2022 - 2027',
+        title: 'Finished University Learn',
+        subTitle: '',
+        order: 2,
+        description:
+          'I started university learning journey at UCAS from 2022 to 2027 and decided to study cybersecurity engineering',
+        studyState: false,
+      },
+    ],
+    workData: [
+      {
+        period: '2022 - 2028',
+        title: 'Strted University work',
+        subTitle: 'self projects and freelancing',
+        order: 0,
+        description:
+          'i started university learnig journey at ucas from 2022 to 2027 i decidec to studey cybersecurity engineering',
+        workState: true,
+      },
+      {
+        period: '2022 - 2027',
+        title: 'Strted University work',
+        subTitle: 'self projects and freelancing',
+        order: 1,
+        description:
+          'i started university learnig journey at ucas from 2022 to 2027 i decidec to studey cybersecurity engineering',
+        workState: true,
+      },
+      {
+        period: '2022 - 2027',
+        title: 'Strted University work',
+        subTitle: 'self projects and freelancing',
+        order: 2,
+        description:
+          'i started university learnig journey at ucas from 2022 to 2027 i decidec to studey cybersecurity engineering',
+        workState: true,
+      },
+    ],
+    counterData: [
+      { num: 5, label: 'Years of Experience' },
+      { num: 20, label: 'Projects Built' },
+      { num: 10, label: 'Vue.js Projects' },
+      { num: 10, label: 'HTML/CSS/JS Projects' },
+    ],
+  }),
+  --------------------------------------------------------------------
+    state: () => ({
+    skills: [
+      {
+        id: 'HTML',
+        img: 'https://res.cloudinary.com/dguoer1il/image/upload/v1766662730/html_o7i5vl.png',
+        order: 0,
+        color: '#E44D26',
+        name: 'HTML',
+      },
+      {
+        id: 'CSS',
+        img: 'https://res.cloudinary.com/dguoer1il/image/upload/v1766662732/css_dze0hz.png',
+        order: 1,
+        color: '#1172B8',
+        name: 'CSS',
+      },
+      {
+        id: 'JavaScript',
+        img: 'https://res.cloudinary.com/dguoer1il/image/upload/v1766662730/js_iphnia.png',
+        color: '#F7DF1E',
+        order: 2,
+        name: 'JavaScript',
+      },
+      {
+        id: 'Vue.js',
+        img: 'https://res.cloudinary.com/dguoer1il/image/upload/v1766662730/vue_pmlh0n.png',
+        color: '#42B883',
+        order: 3,
+        name: 'Vue.js',
+      },
+      {
+        id: 'Bootstrap',
+        img: 'https://res.cloudinary.com/dguoer1il/image/upload/f_auto,q_auto/v1766662734/bootstrap_ee4oni.png',
+        color: '#7952B3',
+        name: 'Bootstrap',
+        order: 4,
+      },
+      {
+        id: 'TailwindCSS',
+        img: 'https://res.cloudinary.com/dguoer1il/image/upload/v1766662729/tailwind_pskww2.png',
+        color: '#38BDF8',
+        name: 'TailwindCSS',
+        order: 5,
+      },
+      {
+        id: 'Firebase',
+        img: 'https://res.cloudinary.com/dguoer1il/image/upload/v1766662732/firebase_idvhiv.png',
+        color: '#FFA712',
+        name: 'Firebase',
+        order: 6,
+      },
+      {
+        id: 'Git',
+        img: 'https://res.cloudinary.com/dguoer1il/image/upload/v1766662731/git_vyi5bf.png',
+        color: '#F1502F',
+        name: 'Git',
+        order: 7,
+      },
+      {
+        id: 'GitHub',
+        img: 'https://res.cloudinary.com/dguoer1il/image/upload/v1766662734/github_i7h8hk.png',
+        color: '#ffffff',
+        name: 'GitHub',
+        order: 8,
+      },
+      {
+        id: 'Java',
+        img: 'https://res.cloudinary.com/dguoer1il/image/upload/v1766662731/java_a3lrdl.png',
+        color: '#5382A1',
+        name: 'Java',
+        order: 9,
+      },
+    ],
+  }),
+
+
+  -----------------------------------------------------
+    state: () => ({
+    categoryClicked: 'All',
+    categoryClickedIndex: 0,
+    categories: ['All', 'Featured', 'Vue.js', 'HTML/CSS'],
+    projects: [
+      {
+        id: 'p1',
+        title: 'Project One',
+        description:
+          'This is a brief description of Project One. This is a brief description of Project One. This is a brief description of Project One. This is a brief This is a brief description of Project One. This is a brief',
+        categories: [
+          { category: 'All', checked: true },
+          { category: 'Vue.js', checked: true },
+          { category: 'Featured', checked: true },
+          { category: 'HTML/CSS', checked: false },
+        ],
+        image: 'https://res.cloudinary.com/dguoer1il/image/upload/v1766663832/q6_wopk6g.png',
+        liveLink: 'https://liveprojectone.com',
+        github: 'https://github.com/projectone',
+        order: 0,
+      },
+      {
+        id: 'p2',
+        title: 'Project Two',
+        description: 'This is a brief description of Project Two.',
+        categories: [
+          { category: 'All', checked: true },
+          { category: 'Vue.js', checked: true },
+          { category: 'Featured', checked: false },
+          { category: 'HTML/CSS', checked: false },
+        ],
+        image: 'https://res.cloudinary.com/dguoer1il/image/upload/v1766663831/q7_esl6jy.png',
+        liveLink: 'https://liveprojecttwo.com',
+        github: 'https://github.com/projectone',
+        order: 1,
+      },
+      {
+        id: 'p3',
+        title: 'Project 3',
+        description: 'This is a brief description of Project Three.',
+        categories: [
+          { category: 'All', checked: true },
+          { category: 'Vue.js', checked: true },
+          { category: 'Featured', checked: false },
+          { category: 'HTML/CSS', checked: false },
+        ],
+        image: 'https://res.cloudinary.com/dguoer1il/image/upload/v1766663814/q4_g50a7l.png',
+        liveLink: 'https://liveprojectthree.com',
+        github: 'https://github.com/projectthree',
+        order: 2,
+      },
+      {
+        id: 'p4',
+        title: 'Project 4',
+        description: 'This is a brief description of Project Four.',
+        categories: [
+          { category: 'All', checked: true },
+          { category: 'Vue.js', checked: false },
+          { category: 'Featured', checked: true },
+          { category: 'HTML/CSS', checked: true },
+        ],
+        image: 'https://res.cloudinary.com/dguoer1il/image/upload/v1766663814/q4_g50a7l.png',
+        liveLink: 'https://liveprojectfour.com',
+        github: 'https://github.com/projectfour',
+        order: 3,
+      },
+      {
+        id: 'p5',
+        title: 'Project Five',
+        description: 'This is a brief description of Project Five.',
+        categories: [
+          { category: 'All', checked: true },
+          { category: 'Vue.js', checked: false },
+          { category: 'Featured', checked: true },
+          { category: 'HTML/CSS', checked: true },
+        ],
+        image: 'https://res.cloudinary.com/dguoer1il/image/upload/v1766663814/q4_g50a7l.png',
+        liveLink: 'https://liveprojectfive.com',
+        github: 'https://github.com/projectfive',
+        order: 4,
+      },
+      {
+        id: 'p6',
+        title: 'Project 6',
+        description: 'This is a brief description of Project Six.',
+        categories: [
+          { category: 'All', checked: true },
+          { category: 'Vue.js', checked: false },
+          { category: 'Featured', checked: false },
+          { category: 'HTML/CSS', checked: false },
+        ],
+        image: 'https://res.cloudinary.com/dguoer1il/image/upload/v1766663814/q4_g50a7l.png',
+        liveLink: 'https://liveprojectsix.com',
+        github: 'https://github.com/projectsix',
+        order: 5,
+      },
+    ],
+    loaded: false,
+    subscribed: false,
+    _unsubscribeRef: null,
+  }),
