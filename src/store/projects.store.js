@@ -4,6 +4,7 @@ import { defineStore } from 'pinia';
 import { ref, update, getDatabase, get, set, onValue } from 'firebase/database';
 import { getAuth } from 'firebase/auth';
 import { app as firebaseApp } from '../firebase';
+import { db } from '../firebase';
 
 export const useProjectsStore = defineStore('projects', {
   state: () => ({
@@ -64,13 +65,6 @@ export const useProjectsStore = defineStore('projects', {
         // 2️⃣ Gather all profile data
         const data = { ...this.getProjectsData };
 
-        // 3️⃣ Get Firebase Realtime Database reference
-        const db = getDatabase(
-          firebaseApp,
-          'https://portfolio-2f700-default-rtdb.asia-southeast1.firebasedatabase.app',
-        );
-
-        // const db = getDatabase();
         const dataRef = ref(db, `projects/projects`);
 
         // 4️⃣ Update profile data in Firebase Realtime Database
@@ -84,14 +78,8 @@ export const useProjectsStore = defineStore('projects', {
     },
     async saveCategoriesToFirebase() {
       try {
-        const cleanCategories = this.categories.map((cat) => ({ name: cat.name })); 
-        // 3️⃣ Get Firebase Realtime Database reference
-        const db = getDatabase(
-          firebaseApp,
-          'https://portfolio-2f700-default-rtdb.asia-southeast1.firebasedatabase.app',
-        );
+        const cleanCategories = this.categories.map((cat) => ({ name: cat.name }));
 
-        // const db = getDatabase();
         const dataRef = ref(db, `projects/categories`);
 
         // 4️⃣ Update profile data in Firebase Realtime Database
@@ -106,7 +94,6 @@ export const useProjectsStore = defineStore('projects', {
     subscribe() {
       if (this.subscribed) return;
 
-      const db = getDatabase(firebaseApp, 'https://portfolio-2f700-default-rtdb.asia-southeast1.firebasedatabase.app');
       const dataRef = ref(db, 'projects');
 
       this.subscribed = true;
@@ -151,7 +138,6 @@ export const useProjectsStore = defineStore('projects', {
     },
     unsubscribe() {
       if (this._unsubscribeRef) {
-        const db = getDatabase(firebaseApp);
         off(this._unsubscribeRef);
         this.subscribed = false;
         this._unsubscribeRef = null;

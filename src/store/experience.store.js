@@ -4,6 +4,7 @@ import { defineStore } from 'pinia';
 import { ref, set, onValue, off, getDatabase } from 'firebase/database';
 import { getAuth } from 'firebase/auth';
 import { app as firebaseApp } from '../firebase';
+import { db } from '../firebase';
 
 const DB_URL = 'https://portfolio-2f700-default-rtdb.asia-southeast1.firebasedatabase.app';
 
@@ -60,14 +61,10 @@ export const useExperience = defineStore('experience', {
       if (!user) throw new Error('User not authenticated');
     },
 
-    _db() {
-      return getDatabase(firebaseApp, DB_URL);
-    },
-
     async saveSection(path, data) {
       try {
         this._requireAuth();
-        await set(ref(this._db(), path), data);
+        await set(ref(db, path), data);
         return true;
       } catch (e) {
         console.error(`Save failed (${path})`, e);
@@ -98,7 +95,7 @@ export const useExperience = defineStore('experience', {
     subscribe() {
       if (this.subscribed) return;
 
-      const dataRef = ref(this._db(), 'experience');
+      const dataRef = ref(db, 'experience');
 
       this._unsubscribe = onValue(
         dataRef,

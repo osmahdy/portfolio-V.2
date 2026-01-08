@@ -2,6 +2,7 @@ import { defineStore } from 'pinia';
 import { ref, update, getDatabase, get, set, onValue } from 'firebase/database';
 import { getAuth } from 'firebase/auth';
 import { app as firebaseApp } from '../firebase';
+import { db } from '../firebase';
 
 export const useSettings = defineStore('settings', {
   state: () => ({
@@ -9,7 +10,7 @@ export const useSettings = defineStore('settings', {
     authChecked: false,
     openedSectinon: localStorage.getItem('lastOpened'),
     lastSignIn: '',
-    isLoading: true, // ← initially true 
+    isLoading: true, // ← initially true
   }),
 
   getters: {
@@ -69,12 +70,6 @@ export const useSettings = defineStore('settings', {
         // 2️⃣ Gather all profile data
         const data = { LastSignIn: date };
 
-        // 3️⃣ Get Firebase Realtime Database reference
-        const db = getDatabase(
-          firebaseApp,
-          'https://portfolio-2f700-default-rtdb.asia-southeast1.firebasedatabase.app',
-        );
-
         await update(ref(db, 'settings'), {
           LastSignIn: date,
         });
@@ -88,7 +83,6 @@ export const useSettings = defineStore('settings', {
     async getLastSignInFromFirebase() {
       if (this.subscribed) return;
 
-      const db = getDatabase(firebaseApp, 'https://portfolio-2f700-default-rtdb.asia-southeast1.firebasedatabase.app');
       const dataRef = ref(db, 'settings/LastSignIn');
 
       this.subscribed = true;

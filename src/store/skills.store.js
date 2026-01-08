@@ -3,8 +3,7 @@
 import { defineStore } from 'pinia';
 import { ref, update, getDatabase, get, set, onValue } from 'firebase/database';
 import { getAuth } from 'firebase/auth';
-import { app as firebaseApp } from '../firebase';
-
+import { db } from '../firebase';
 // Function defined OUTSIDE the store
 function formatDriveImageUrl(shareLink) {
   const match = shareLink.match(/\/d\/([a-zA-Z0-9_-]+)/) || shareLink.match(/id=([a-zA-Z0-9_-]+)/);
@@ -41,13 +40,6 @@ export const useSkills = defineStore('skills', {
         // 2️⃣ Gather all profile data
         const data = { ...this.getSkills };
 
-        // 3️⃣ Get Firebase Realtime Database reference
-        const db = getDatabase(
-          firebaseApp,
-          'https://portfolio-2f700-default-rtdb.asia-southeast1.firebasedatabase.app',
-        );
-
-        // const db = getDatabase();
         const dataRef = ref(db, `skills`);
 
         // 4️⃣ Update profile data in Firebase Realtime Database
@@ -62,7 +54,6 @@ export const useSkills = defineStore('skills', {
     subscribe() {
       if (this.subscribed) return;
 
-      const db = getDatabase(firebaseApp, 'https://portfolio-2f700-default-rtdb.asia-southeast1.firebasedatabase.app');
       const dataRef = ref(db, 'skills');
 
       this.subscribed = true;
@@ -90,7 +81,6 @@ export const useSkills = defineStore('skills', {
     },
     unsubscribe() {
       if (this._unsubscribeRef) {
-        const db = getDatabase(firebaseApp);
         off(this._unsubscribeRef);
         this.subscribed = false;
         this._unsubscribeRef = null;

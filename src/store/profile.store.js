@@ -3,6 +3,7 @@ import { defineStore } from 'pinia';
 import { ref, set, getDatabase, onValue, off, get } from 'firebase/database';
 import { getAuth } from 'firebase/auth';
 import { app as firebaseApp } from '../firebase';
+import { db } from '../firebase';
 
 export const useProfileStore = defineStore('profile', {
   state: () => ({
@@ -84,8 +85,6 @@ export const useProfileStore = defineStore('profile', {
     subscribe() {
       if (this.subscribed) return;
 
-      const db = getDatabase(firebaseApp, 'https://portfolio-2f700-default-rtdb.asia-southeast1.firebasedatabase.app');
-
       const profileRef = ref(db, 'profile');
       this.subscribed = true;
       this._unsubscribeRef = profileRef;
@@ -158,12 +157,7 @@ export const useProfileStore = defineStore('profile', {
       try {
         const auth = getAuth();
         const user = auth.currentUser;
-        if (!user) throw new Error('User not authenticated');
-
-        const db = getDatabase(
-          firebaseApp,
-          'https://portfolio-2f700-default-rtdb.asia-southeast1.firebasedatabase.app',
-        );
+        if (!user) throw new Error('User not authenticated'); 
 
         const profileRef = ref(db, 'profile');
 
