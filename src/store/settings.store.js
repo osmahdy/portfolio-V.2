@@ -27,12 +27,11 @@ export const useSettings = defineStore('settings', {
       this.isAuthenticated = false;
       this.authChecked = false;
     },
-    login() {
-      this.isAuthenticated = true;
-      this.authChecked = true;
+    setAuthChecked(value) {
+      this.authChecked = value;
     },
     setAuthenticated(value) {
-      this.authChecked = value;
+      this.isAuthenticated = value;
     },
     setOpenedSection(id) {
       this.openedSectinon = id;

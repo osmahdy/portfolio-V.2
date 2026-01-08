@@ -22,10 +22,7 @@ const handleLogin = async () => {
 
   try {
     await signInWithEmailAndPassword(auth, email.value.trim(), password.value);
-    showAlertFn('successfully logged in', 'good');
-    // onAuthStateChanged(auth, (user) => {
-    //   store.setAuthenticated(!!user);
-    // });
+    showAlertFn('successfully logged in', 'good'); 
     setTimeout(() => { 
       router.push('/a-panel-dashboard');
     }, 3000);

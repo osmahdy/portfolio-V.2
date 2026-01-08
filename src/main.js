@@ -29,24 +29,43 @@ AOS.init({ duration: 800, once: true });
  * This MUST exist
  */
 let firstAuthCheck = true;
+// onAuthStateChanged(auth, async (user) => {
+//   const settingsStore = useSettings();
+//   settingsStore.setAuthenticated(!!user);
+//   settingsStore.setAuthenticated(true);
+
+//   settingsStore.setLoading(true);
+//   if (user) {
+//     await settingsStore.getLastSignInFromFirebase();
+
+//     // ✅ only update when user just signed in
+//     if (!firstAuthCheck) {
+//       await settingsStore.saveLastSignInToFirebase(new Date().toISOString());
+//       // await settingsStore.saveLastSignInToFirebase(new Date().toISOString());
+//     }
+//   }
+
+//   firstAuthCheck = false;
+// });
 onAuthStateChanged(auth, async (user) => {
   const settingsStore = useSettings();
-  settingsStore.setAuthenticated(!!user);
-  settingsStore.setAuthenticated(true);
+
+  settingsStore.setAuthenticated(!!user); // true / false
+  settingsStore.setAuthChecked(true); // auth check finished
 
   settingsStore.setLoading(true);
+
   if (user) {
     await settingsStore.getLastSignInFromFirebase();
 
-    // ✅ only update when user just signed in
     if (!firstAuthCheck) {
       await settingsStore.saveLastSignInToFirebase(new Date().toISOString());
-      // await settingsStore.saveLastSignInToFirebase(new Date().toISOString());
     }
   }
 
   firstAuthCheck = false;
 });
+
 const profileStore = useProfileStore();
 const experienceStore = useExperience();
 const projectsStore = useProjectsStore();
