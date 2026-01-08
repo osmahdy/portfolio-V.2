@@ -1,4 +1,4 @@
-import { createApp,watch } from 'vue';
+import { createApp, watch } from 'vue';
 import './style.css';
 import App from './App.vue';
 import router from './router';
@@ -32,6 +32,8 @@ let firstAuthCheck = true;
 onAuthStateChanged(auth, async (user) => {
   const settingsStore = useSettings();
   settingsStore.setAuthenticated(!!user);
+  settingsStore.setAuthenticated(true);
+
   settingsStore.setLoading(true);
   if (user) {
     await settingsStore.getLastSignInFromFirebase();

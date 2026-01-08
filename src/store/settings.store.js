@@ -32,8 +32,7 @@ export const useSettings = defineStore('settings', {
       this.authChecked = true;
     },
     setAuthenticated(value) {
-      this.isAuthenticated = value;
-      this.authChecked = true;
+      this.authChecked = value;
     },
     setOpenedSection(id) {
       this.openedSectinon = id;
@@ -91,6 +90,18 @@ export const useSettings = defineStore('settings', {
           const data = snapshot.val();
           this.lastSignIn = data;
         }
+      });
+    },
+    waitForAuth() {
+      if (this.authChecked) return Promise.resolve();
+
+      return new Promise((resolve) => {
+        const unwatch = this.$subscribe(() => {
+          if (this.authChecked) {
+            unwatch();
+            resolve();
+          }
+        });
       });
     },
   },

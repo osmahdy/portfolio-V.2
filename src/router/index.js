@@ -28,31 +28,18 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   const store = useSettings();
 
-  // ⏳ wait until auth check finishes
+  // ⏳ Wait until auth check finishes (Promise-based)
   if (!store.authChecked) {
-    const stop = watch(
-      () => store.authChecked,
-      (ready) => {
-        if (!ready) return;
-
-        stop();
-        proceed();
-      },
-    );
-    return; // ⛔ wait
+    await store.waitForAuth();
   }
 
-  proceed();
-
-  function proceed() {
-    if (to.meta.requiresAuth && !store.isAuthenticated) {
-      next('/a-panel-login');
-    } else {
-      next();
-    }
+  if (to.meta.requiresAuth && !store.isAuthenticated) {
+    next('/a-panel-login');
+  } else {
+    next();
   }
 });
 
