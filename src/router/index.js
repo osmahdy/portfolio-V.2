@@ -4,6 +4,7 @@ import main from '../views/external/main.vue';
 import NotFound from '../views/NotFound.vue';
 import { useSettings } from '../store/settings.store';
 import AOS from 'aos';
+import { watch } from 'vue';
 
 const Dashboard = () => import('../views/external/dashboard.vue');
 
@@ -30,23 +31,28 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const store = useSettings();
 
+  // ⏳ wait until auth check finishes
   if (!store.authChecked) {
-    const stop = store.$subscribe(() => {
-      stop();
+    const stop = watch(
+      () => store.authChecked,
+      (ready) => {
+        if (!ready) return;
 
-      if (to.meta.requiresAuth && !store.isAuthenticated) {
-        next('/a-panel-login');
-      } else {
-        next();
-      }
-    });
-    return; // ⛔ IMPORTANT
+        stop();
+        proceed();
+      },
+    );
+    return; // ⛔ wait
   }
 
-  if (to.meta.requiresAuth && !store.isAuthenticated) {
-    next('/a-panel-login');
-  } else {
-    next();
+  proceed();
+
+  function proceed() {
+    if (to.meta.requiresAuth && !store.isAuthenticated) {
+      next('/a-panel-login');
+    } else {
+      next();
+    }
   }
 });
 
