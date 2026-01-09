@@ -80,7 +80,7 @@ function showAlertFn(message, state) {
       :key="field.key"
     >
       <labelComp :label="field.label" />
-      <inputComp v-model="localData[field.key]" :placeholder="field.placeholder" :status="status" />
+      <inputComp v-model="localData[field.key]" :placeholder="field.placeholder" :status="status" class="w-full"/>
     </div>
     <alert v-if="showAlert" :message="alertMessage" :state="alertState" />
     <edit_save v-model="confSave" card-id="contact" @edit-click="startEditing" @save-click="saveEdits" />

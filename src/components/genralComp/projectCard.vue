@@ -12,23 +12,25 @@ const props = defineProps({
     required: true,
   },
   active: Boolean,
+  isInitial: Boolean,
 });
+
 const emit = defineEmits(['updateHeight']);
 const sectionRef = ref(null);
 
 function measureHeight() {
   if (!sectionRef.value) return;
 
+  // allow:
+  // - active card
+  // - OR first card on initial load
+  if (!props.active && !props.isInitial) return;
+
   // Optionally wait a tiny delay for images or transitions
   setTimeout(() => {
     emit('updateHeight', sectionRef.value.offsetHeight);
   }, 50);
 }
-
-// Measure on mount
-onMounted(() => {
-  nextTick(() => measureHeight());
-});
 
 const MAX_LENGTH = window.innerWidth < 768 ? 2 : 3;
 // This stores which text blocks are expanded
@@ -100,6 +102,7 @@ onMounted(() => {
   cardRefs.value.forEach((card) => {
     if (card) observer.observe(card);
   });
+
   nextTick(() => measureHeight());
 });
 
@@ -111,7 +114,7 @@ watch(
   () => visibleProjects.value.length,
   async () => {
     await nextTick();
-    // measureHeight();
+    measureHeight();
   },
 );
 </script>

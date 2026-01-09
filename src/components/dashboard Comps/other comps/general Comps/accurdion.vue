@@ -167,11 +167,13 @@ const saveEdits = () => {
             <p v-if="!status" class="drag-handle">
               <i class="fa-solid fa-grip-vertical text-2xl text-slate-500"></i>
             </p>
-            <div class="flex w-full cursor-pointer items-center justify-between rounded-3xl border border-slate-400 bg-slate-800 p-4">
+            <div
+              class="flex w-full cursor-pointer items-center justify-between rounded-3xl border border-slate-400 bg-slate-800 p-4"
+            >
               <div class="flex flex-col font-semibold md:flex-row md:items-center" @click="toggle(index)">
-                <p class="min-w-35">{{ item.period.substring(0, 14) }}</p>
+                <p class="min-w-35">{{ item.period.substring(0, 17) }}</p>
                 <p class="border-solid border-transparent border-l-slate-300 md:ml-5 md:border md:pl-5">
-                  {{ item.title }}
+                  {{ item.title.substring(0, 30) }}
                 </p>
               </div>
               <div class="flex items-center justify-between">
@@ -195,7 +197,7 @@ const saveEdits = () => {
             <div class="box flex flex-col items-start justify-center md:flex-row md:items-center md:justify-start">
               <labelComp label="Period" />
               <div class="w-full">
-                <inputComp v-model="item.period" :status="status" />
+                <inputComp v-model="item.period" :status="status" :size-allowed="17" />
                 <p v-if="errors[index]?.period" class="mt-1 text-sm text-red-500">
                   {{ errors[index]?.period }}
                 </p>
@@ -204,7 +206,7 @@ const saveEdits = () => {
             <div class="box flex flex-col items-start justify-center md:flex-row md:items-center md:justify-start">
               <labelComp label="Title" />
               <div class="w-full">
-                <inputComp v-model="item.title" :status="status" />
+                <inputComp v-model="item.title" :status="status" :size-allowed="30" />
                 <p v-if="errors[index]?.title" class="mt-1 text-sm text-red-500">
                   {{ errors[index]?.title }}
                 </p>
@@ -213,7 +215,7 @@ const saveEdits = () => {
             <div class="box flex flex-col items-start justify-center md:flex-row md:items-center md:justify-start">
               <labelComp label="SubTitle" />
               <div class="w-full">
-                <inputComp v-model="item.subTitle" :status="status" />
+                <inputComp v-model="item.subTitle" :status="status" :size-allowed="30" />
                 <p v-if="errors[index]?.subTitle" class="mt-1 text-sm text-red-500">
                   {{ errors[index]?.subTitle }}
                 </p>
@@ -222,7 +224,7 @@ const saveEdits = () => {
             <div class="box flex flex-col items-start justify-center md:flex-row md:items-center md:justify-start">
               <labelComp label="Description" />
               <div class="w-full">
-                <inputComp v-model="item.description" :status="status" />
+                <inputComp v-model="item.description" :status="status" :size-allowed="300" />
                 <p v-if="errors[index]?.description" class="mt-1 text-sm text-red-500">
                   {{ errors[index]?.description }}
                 </p>

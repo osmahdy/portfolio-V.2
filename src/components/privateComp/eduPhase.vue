@@ -27,7 +27,7 @@ const props = defineProps({
       :key="index"
     >
       <div
-        class="icon relative px-5 w-15 before:absolute before:top-0 before:left-[50%] before:-z-1 before:h-full before:w-[2px] before:-translate-x-[50%] before:bg-slate-400"
+        class="icon relative w-15 px-5 before:absolute before:top-0 before:left-[50%] before:-z-1 before:h-full before:w-[2px] before:-translate-x-[50%] before:bg-slate-400"
       >
         <p
           class="absolute top-0 left-[50%] flex h-10 !w-10 -translate-x-[50%] items-center justify-center rounded-full bg-slate-400"
@@ -53,13 +53,15 @@ const props = defineProps({
       </div>
 
       <div class="data text-start">
-        <tag :tag-name="value.period" class="!m-0 !mb-3 !rounded-2xl flex-1" />
-        <p class="pb-3 text-2xl font-semibold text-gray-800 dark:text-white" v-if="value.title">{{ value.title }}</p>
+        <tag :tag-name="value.period.substring(0, 17)" class="!m-0 !mb-3 flex-1 !rounded-2xl" />
+        <p class="pb-3 text-2xl font-semibold text-gray-800 dark:text-white" v-if="value.title">
+          {{ value.title.substring(0, 30) }}
+        </p>
         <p class="-mt-3 pb-3 text-sm font-semibold text-gray-800 dark:text-white" v-if="value.subTitle">
-          {{ value.subTitle }}
+          {{ value.subTitle.substring(0, 30) }}
         </p>
         <p class="text-lg text-gray-800 dark:text-gray-400">
-          {{ value.description }}
+          {{ value.description.substring(0, 300) }}
         </p>
         <div class="tags flex">
           <tag v-if="value.tags" v-for="tagval in value.tags" :tag-name="tagval" :tag-type="value.tagType" />

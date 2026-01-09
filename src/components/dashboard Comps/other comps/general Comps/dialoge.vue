@@ -129,7 +129,7 @@ const validate = () => {
         Save
       </p>
       <p @click="closeDialoge">
-        <i class="fa-solid fa-x absolute top-5 right-5 cursor-pointer text-xl"></i>
+        <i class="fa-solid fa-x absolute top-5 right-5 cursor-pointer text-xl text-white"></i>
       </p>
     </div>
   </div>

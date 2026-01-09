@@ -139,14 +139,14 @@ const validate = () => {
       </div>
       <div class="w-full">
         <labelComp label="Project Title" class="m-0!" />
-        <inputComp v-model="dataCopy.title" class="m-0!" :status="false" />
+        <inputComp v-model="dataCopy.title" class="m-0!" :status="false" :size-allowed="20" />
         <p v-if="errors.title" class="mt-1 text-sm text-red-500">
           {{ errors.title }}
         </p>
       </div>
       <div class="w-full">
         <labelComp label="Projects Description" class="m-0!" />
-        <inputComp v-model="dataCopy.description" class="m-0!" :status="false" />
+        <inputComp v-model="dataCopy.description" class="m-0!" :status="false" :size-allowed="200" />
         <p v-if="errors.description" class="mt-1 text-sm text-red-500">
           {{ errors.description }}
         </p>
@@ -180,7 +180,7 @@ const validate = () => {
         Save
       </p>
       <p @click="closeDialoge">
-        <i class="fa-solid fa-x absolute top-5 right-5 cursor-pointer text-xl"></i>
+        <i class="fa-solid fa-x absolute top-5 right-5 cursor-pointer text-xl text-white"></i>
       </p>
     </div>
   </div>

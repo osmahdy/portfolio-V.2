@@ -27,11 +27,12 @@ function onSectionHeight(height) {
           transform: `translateX(-${projectsStore.getCategoryClickedIndex * (100 / projectsStore.getCategories.length)}%)`,
         }"
       >
-        <div v-for="cat in projectsStore.getCategories" :key="cat.name" :class="[cat.name, 'w-full px-10']">
+        <div v-for="(cat, index) in projectsStore.getCategories" :key="cat.name" :class="[cat.name, 'w-full px-10']">
           <projectCard
             :project-data="projectsStore.getProjectsByCategory(cat.name)"
             @update-height="onSectionHeight"
             :active="cat.name === projectsStore.getCategoryClicked.name ? true : false"
+            :is-initial="projectsStore.getCategoryClickedIndex === -1 && index === 0"
           />
         </div>
       </div>

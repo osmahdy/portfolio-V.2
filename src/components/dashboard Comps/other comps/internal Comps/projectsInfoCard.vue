@@ -169,13 +169,13 @@ function showAlertFn(message, state) {
                 </div>
                 <div class="options flex items-center justify-center">
                   <p
-                    class="m-1 cursor-pointer text-lg text-slate-950 duration-300 hover:scale-110"
+                    class="m-1 cursor-pointer text-lg text-red-500 duration-300 hover:scale-110"
                     @click="deleteProject(index)"
                   >
                     <i class="fa-solid fa-trash"></i>
                   </p>
                   <p
-                    class="m-1 cursor-pointer text-lg text-slate-950 duration-300 hover:scale-110"
+                    class="m-1 cursor-pointer text-lg text-white duration-300 hover:scale-110"
                     @click="openDialoge(index)"
                   >
                     <i class="fa-solid fa-circle-info"></i>

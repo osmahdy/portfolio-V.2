@@ -70,7 +70,7 @@ function showAlertFn(message, state) {
       </div>
       <div v-for="item in countersData" class="flex">
         <inputComp v-model="item.num" :status="status" :is-counter="true" />
-        <inputComp v-model="item.label" :status="status" />
+        <inputComp v-model="item.label" :status="status" class="w-full!" />
       </div>
     </div>
     <alert v-if="showAlert" :message="alertMessage" :state="alertState" />

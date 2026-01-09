@@ -71,7 +71,7 @@ function showAlertFn(message, state) {
       v-for="data in profileFields"
     >
       <labelComp :label="data.label" />
-      <inputComp v-model="localData[data.key]" :placeholder="data.placeholder" :status="status" />
+      <inputComp v-model="localData[data.key]" :placeholder="data.placeholder" :status="status" class="w-full"/>
     </div>
     <alert v-if="showAlert" :message="alertMessage" :state="alertState" />
     <edit_save v-model="confSave" card-id="hero" @edit-click="startEditing" @save-click="saveEdits" />
