@@ -20,8 +20,15 @@ function onSectionHeight(height) {
     <projectsBar />
 
     <div class="sections-viewport w-full overflow-hidden" :style="{ height: currentHeight + 'px' }">
+      <!-- <div
+        class="sections flex w-[850%] gap-15 transition-transform duration-500"
+        :style="{
+          width: projectsStore.getCategories.length * 100 + '%',
+          transform: `translateX(-${projectsStore.getCategoryClickedIndex * (100 / projectsStore.getCategories.length)}%)`,
+        }"
+      > -->
       <div
-        class="sections flex w-[250%] gap-15 transition-transform duration-500"
+        class="sections flex transition-transform duration-500 ease-in-out"
         :style="{
           width: projectsStore.getCategories.length * 100 + '%',
           transform: `translateX(-${projectsStore.getCategoryClickedIndex * (100 / projectsStore.getCategories.length)}%)`,

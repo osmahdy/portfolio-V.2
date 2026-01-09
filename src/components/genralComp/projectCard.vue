@@ -32,7 +32,7 @@ function measureHeight() {
   }, 50);
 }
 
-const MAX_LENGTH = window.innerWidth < 768 ? 2 : 3;
+const MAX_LENGTH = window.innerWidth < 768 ? 1 : 3;
 // This stores which text blocks are expanded
 const showAll = ref(false);
 
@@ -128,18 +128,19 @@ watch(
       :data-aos-delay="animationDelay"
       :data-aos-easing="animationTiming"
     >
+      <!-- class="projectCard relative rounded-lg bg-gray-400 p-2 shadow-lg hover:shadow-xl dark:bg-gray-800" -->
       <div
-        class="projectCard relative rounded-lg bg-gray-400 p-2 shadow-lg hover:shadow-xl dark:bg-gray-800"
+        class="projectCard relative aspect-square overflow-hidden rounded-lg bg-gray-400 p-2 shadow-lg hover:shadow-xl dark:bg-gray-800"
         v-for="(data, index) in visibleProjects"
         :key="index"
       >
-        <img v-if="data.image" :src="data.image" alt="" class="projectImg h-full w-full rounded-lg" />
+        <img v-if="data.image" :src="data.image" alt="" class="projectImg h-full w-full rounded-lg object-cover" />
 
         <div
           class="floating absolute top-0 left-0 flex h-full w-full cursor-pointer flex-col justify-center rounded-lg bg-gray-500/90 p-5 opacity-0 transition-all duration-300 dark:bg-gray-800/90"
         >
-          <h3 class="mb-3 text-2xl font-semibold text-gray-900 dark:text-white">{{ data.title }}</h3>
-          <p class="mb-4 font-semibold text-gray-800 dark:text-gray-300">{{ data.description }}</p>
+          <h3 class="mb-3 line-clamp-1 text-2xl font-semibold text-gray-900 dark:text-white">{{ data.title }}</h3>
+          <p class="mb-4 line-clamp-3 font-semibold text-gray-800 dark:text-gray-300">{{ data.description }}</p>
           <div class="flex flex-wrap items-center justify-center">
             <a
               :href="data.liveLink"

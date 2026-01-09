@@ -146,7 +146,7 @@ const validate = () => {
       </div>
       <div class="w-full">
         <labelComp label="Projects Description" class="m-0!" />
-        <inputComp v-model="dataCopy.description" class="m-0!" :status="false" :size-allowed="200" />
+        <inputComp v-model="dataCopy.description" class="m-0!" :status="false" :size-allowed="120" />
         <p v-if="errors.description" class="mt-1 text-sm text-red-500">
           {{ errors.description }}
         </p>
