@@ -18,18 +18,31 @@ const props = defineProps({
 const emit = defineEmits(['updateHeight']);
 const sectionRef = ref(null);
 
+// function measureHeight() {
+//   if (!sectionRef.value) return;
+
+//   // allow:
+//   // - active card
+//   // - OR first card on initial load
+//   if (!props.active && !props.isInitial) return;
+
+//   // Optionally wait a tiny delay for images or transitions
+//   setTimeout(() => {
+//     emit('updateHeight', sectionRef.value.offsetHeight);
+//   }, 50);
+// }
 function measureHeight() {
-  if (!sectionRef.value) return;
+  nextTick(() => {
+    if (!sectionRef.value) return;
 
-  // allow:
-  // - active card
-  // - OR first card on initial load
-  if (!props.active && !props.isInitial) return;
-
-  // Optionally wait a tiny delay for images or transitions
-  setTimeout(() => {
-    emit('updateHeight', sectionRef.value.offsetHeight);
-  }, 50);
+    // تأكد من أننا نحسب الارتفاع فقط للقسم النشط
+    if (props.active || props.isInitial) {
+      const height = sectionRef.value.offsetHeight;
+      if (height > 0) {
+        emit('updateHeight', height);
+      }
+    }
+  });
 }
 
 const MAX_LENGTH = window.innerWidth < 768 ? 1 : 3;
@@ -78,32 +91,38 @@ let observer;
 
 const cardRefs = ref([]);
 
+// وظيفة لربط العناصر بالمصفوفة داخل v-for
+const setCardRef = (el) => {
+  if (el && !cardRefs.value.includes(el)) {
+    cardRefs.value.push(el);
+  }
+};
+
 onMounted(() => {
   observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const index = cardRefs.value.indexOf(entry.target);
+          // نحصل على الـ index المخزن في الـ dataset
+          const index = parseInt(entry.target.dataset.index);
 
-          if (index !== -1 && !activeIndexes.value.has(index)) {
+          if (!activeIndexes.value.has(index)) {
             activeIndexes.value.add(index);
-
-            // remove after hint (UX-friendly)
             setTimeout(() => {
               activeIndexes.value.delete(index);
-            }, 1000);
+            }, 1500); // زيادة الوقت قليلاً للموبايل
           }
         }
       });
     },
-    { threshold: 0.6 },
+    { threshold: 0.6 }, // سيظهر عندما يظهر 60% من الكارت
   );
 
-  cardRefs.value.forEach((card) => {
-    if (card) observer.observe(card);
+  // مراقبة العناصر
+  cardRefs.value.forEach((card) => observer.observe(card));
+  nextTick(() => {
+    measureHeight();
   });
-
-  nextTick(() => measureHeight());
 });
 
 onBeforeUnmount(() => {
@@ -111,11 +130,21 @@ onBeforeUnmount(() => {
 });
 
 watch(
-  () => visibleProjects.value.length,
+  visibleProjects,
   async () => {
     await nextTick();
-    measureHeight();
+
+    // 1. إعادة ربط المراجع
+    cardRefs.value = [];
+    const cards = sectionRef.value.querySelectorAll('.projectCard');
+    cards.forEach((card) => observer.observe(card));
+
+    // 2. تحديث الارتفاع بعد أن يستقر الـ DOM
+    setTimeout(() => {
+      measureHeight();
+    }, 100); // مهلة بسيطة لضمان رندر الشبكة (Grid)
   },
+  { deep: true },
 );
 </script>
 
@@ -128,11 +157,13 @@ watch(
       :data-aos-delay="animationDelay"
       :data-aos-easing="animationTiming"
     >
-      <!-- class="projectCard relative rounded-lg bg-gray-400 p-2 shadow-lg hover:shadow-xl dark:bg-gray-800" -->
       <div
-        class="projectCard relative aspect-square overflow-hidden rounded-lg bg-gray-400 p-2 shadow-lg hover:shadow-xl dark:bg-gray-800"
+        class="projectCard relative aspect-square overflow-hidden rounded-lg bg-gray-400 p-2 shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800"
         v-for="(data, index) in visibleProjects"
         :key="index"
+        :ref="setCardRef"
+        :data-index="index"
+        :class="{ 'is-active': activeIndexes.has(index) }"
       >
         <img v-if="data.image" :src="data.image" alt="" class="projectImg h-full w-full rounded-lg object-cover" />
 
@@ -167,6 +198,15 @@ watch(
 </template>
 
 <style scoped>
+/* هذا الكلاس سيجعل التأثير يظهر برمجياً (للموبايل) */
+.projectCard.is-active .floating {
+  opacity: 1;
+}
+.projectCard.is-active .projectImg {
+  filter: blur(4px);
+  transform: scale(1.05);
+}
+
 .projectCard {
   position: relative;
   overflow: hidden;
