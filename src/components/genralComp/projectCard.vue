@@ -133,7 +133,7 @@ watch(
         v-for="(data, index) in visibleProjects"
         :key="index"
       >
-        <img v-if="data.image" :src="data.image" alt="" class="projectImg w-full rounded-lg" />
+        <img v-if="data.image" :src="data.image" alt="" class="projectImg h-full w-full rounded-lg" />
 
         <div
           class="floating absolute top-0 left-0 flex h-full w-full cursor-pointer flex-col justify-center rounded-lg bg-gray-500/90 p-5 opacity-0 transition-all duration-300 dark:bg-gray-800/90"
